@@ -1,17 +1,21 @@
 {
-  "name": "mesto-ad--main",
+  "name": "mesto-ad-actual",
   "version": "1.0.0",
   "description": "Стартовый набор для выполнения проектной работы Место",
   "main": "index.js",
+  "homepage": "https://katarinaVanish.github.io/mesto-ad-actual",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vite": "^7.3.1"
+    "vite": "^7.3.1",
+    "gh-pages": "^6.1.1"
   }
 }

@@ -4,6 +4,5 @@ export default defineConfig({
   server: {
     open: true, // автоматически открывает страницу в браузере
   },
-
-  base: './mesto-ad--abc/',     // путь для сборки
+  base: '/mesto-ad-actual/',     // путь для сборки
 });
