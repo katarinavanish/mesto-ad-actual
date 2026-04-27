@@ -15,7 +15,7 @@ const hideInputError = (formElement, inputElement, settings) => {
 const checkInputValidity = (formElement, inputElement, settings) => {
   if (inputElement.type === 'text') {
     const firstChar = inputElement.value[0];
-    if (firstChar && !/^[A-Za-z0-9]/.test(firstChar)) {
+    if (firstChar && !/^[A-Za-zА-Яа-я0-9]/.test(firstChar)) {
       inputElement.setCustomValidity('Название должно начинаться с буквы или цифры');
     } else {
       inputElement.setCustomValidity('');
