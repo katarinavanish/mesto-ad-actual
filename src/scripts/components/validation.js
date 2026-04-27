@@ -13,16 +13,15 @@ const hideInputError = (formElement, inputElement, settings) => {
 };
 
 const checkInputValidity = (formElement, inputElement, settings) => {
-  if (inputElement.type === 'text') {
-    const firstChar = inputElement.value[0];
-    if (firstChar && !/^[A-Za-zА-Яа-я0-9]/.test(firstChar)) {
-      inputElement.setCustomValidity('Название должно начинаться с буквы или цифры');
-    } else {
-      inputElement.setCustomValidity('');
-    }
+  if (inputElement.validity.patternMismatch){
+    inputElement.setCustomValidaty(inputElement.dataset.errorMessage);
+  } else if (inputElement.value.trim() !== inputElement.value) {
+    inputElement.setCustomValidaty('Уберите пробелы в начале или конце');
+  } else {
+    inputElement.setCustomValidaty('');
   }
 
-  if (!inputElement.validity.valid) {
+  if (!inputElement.validity.valid){
     showInputError(
       formElement,
       inputElement,
@@ -33,6 +32,7 @@ const checkInputValidity = (formElement, inputElement, settings) => {
     hideInputError(formElement, inputElement, settings);
   }
 };
+
 
 const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => !inputElement.validity.valid);
